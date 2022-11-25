@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Weather</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="submit">Submit</string>
+    <string name="netw_connection">No network connection</string>
 </resources>
