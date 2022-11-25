@@ -24,7 +24,7 @@ public class parser {
             longitude = "Lon",
             latitude = "Lat";
 
-    public static void Time(JSONObject time) throws JSONException {
+    public static void Time (JSONObject time) throws JSONException {
         String approve = time.getString(approved_t);
         System.out.println(approve);
         String reference = time.getString(reference_t);
