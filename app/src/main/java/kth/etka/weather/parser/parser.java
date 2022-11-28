@@ -9,6 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 import kth.etka.weather.MainActivity;
@@ -25,12 +28,27 @@ public class parser {
             latitude = "Lat";
 
     public static void Time (JSONObject time) throws JSONException {
-        String approve = time.getString(approved_t);
+        //String JSON_STRING = "{\"employee\":{\"name\":\"Abhishek Saini\",\"salary\":65000}}";
+
+        String approved = time.getString(approved_t);
+        //JSONObject object1 = new JSONObject(reference_t);
+        //JSONObject valid = timeseries.getString(valid_t);
+        //System.out.println(object1);
+        System.out.println("object" + approved);
+
+        /*JSONObject employee = object.getJSONObject("employee");
+
+        String name = employee.getString("name");
+        String salary = employee.getString("salary");
+        System.out.println(name);
+        System.out.println(salary);*/
+
+        /*String approve = time.getString(approved_t);
         System.out.println(approve);
         String reference = time.getString(reference_t);
         System.out.println(reference);
         String valid = time.getString(valid_t);
-        System.out.println(valid);
+        System.out.println(valid);*/
 
 
     }
