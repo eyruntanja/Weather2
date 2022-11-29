@@ -21,16 +21,67 @@ public class parser {
     private static final String
             approved_t = "approvedTime",
             reference_t = "referenceTime",
+            timeseries = "timeSeries",
             valid_t = "validTime",
+            param = "parameters",
+            names = "name",
+            value = "values",
             temperature = "t",
             cloud_cover = "tcc_mean",
             longitude = "Lon",
             latitude = "Lat";
 
-    public static void Time (JSONObject time) throws JSONException {
+    public static void Weather (JSONObject weather) throws JSONException {
         //String JSON_STRING = "{\"employee\":{\"name\":\"Abhishek Saini\",\"salary\":65000}}";
 
-        String approved = time.getString(approved_t);
+        String approved = weather.getString(approved_t);
+        String reference = weather.getString(reference_t);
+
+        JSONArray timeSeries = weather.getJSONArray(timeseries);
+
+        for (int i = 0; i < timeSeries.length(); i++){
+            JSONObject timeS = timeSeries.getJSONObject(i);
+            String valid = timeS.getString(valid_t);
+
+            JSONArray weatherAtX = timeS.getJSONArray(param);
+
+            //TODO: print the time to the array
+            System.out.println(valid);
+
+
+
+            for (int j = 0; j < weatherAtX.length(); j++){
+                JSONObject parameters = weatherAtX.getJSONObject(j);
+                String name = parameters.getString(names);
+                JSONArray Values = parameters.getJSONArray(value);
+
+                //do we need the if statements?
+
+                String temper;
+                String cloudCover;
+
+                if (name.equals(temperature)) {
+                    //TODO: print temperature to array
+                    System.out.println(temperature);
+                    temper = String.valueOf(Values);
+                    temper = J;
+                    System.out.println(temper);
+                }else if (name.equals(cloud_cover)){
+                    //TODO: print cloud coverage to array
+                    System.out.println(cloud_cover);
+                    System.out.println(Values);
+                    cloudCover = (value);
+                }else{
+                    //TODO: Something?
+                }
+
+            }
+
+            //wheatherList.add(new WeatherInfo(valid,))
+
+        }
+
+
         //JSONObject object1 = new JSONObject(reference_t);
         //JSONObject valid = timeseries.getString(valid_t);
         //System.out.println(object1);
@@ -50,10 +101,9 @@ public class parser {
         String valid = time.getString(valid_t);
         System.out.println(valid);*/
 
-
     }
 
-    public static void parseJsonData(String jsonString) {
+/*    public static void parseJsonData(String jsonString) {
             try {
                 JSONObject object = new JSONObject(jsonString);
                 JSONArray paramArray = object.getJSONArray("parameters");
@@ -67,10 +117,7 @@ public class parser {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-    }
-
-
-
+    }*/
 }
 
 

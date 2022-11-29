@@ -33,20 +33,11 @@ public class MainActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         submit.setOnClickListener(this::submit);
 
-        JSONObject example = networking.getJson();
-
-        try {
-            System.out.println("dude");
-            parser.Time(example);
-            System.out.println("Sup");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
     public void loadWeatherForecast(String cityName) {
         // init
-        networking networking = new networking();
+
     }
 
     //not sure if we have to change the edit text, it looks weird
