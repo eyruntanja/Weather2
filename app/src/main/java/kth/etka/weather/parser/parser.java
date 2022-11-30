@@ -51,6 +51,9 @@ public class parser {
     public static void Weather (JSONObject weather) throws JSONException {
 
         String approved = weather.getString(approved_t);
+        String approvedDate = approved.substring(0,10);
+        String approvedTime = approved.substring(11,16);
+        System.out.println(approvedDate + " " + approvedTime);
         String reference = weather.getString(reference_t);
 
         String approvedDate = approved.substring(0,10);
@@ -81,6 +84,7 @@ public class parser {
                 JSONArray Values = parameters.getJSONArray(value);
 
                 if (name.equals(temperature)) {
+<<<<<<< HEAD
                     System.out.println(temperature);
                     temper = String.valueOf(Values);
                     temper = temper.substring(1, temper.length() - 1) + " °C";
@@ -91,9 +95,31 @@ public class parser {
                     cloudCover = String.valueOf(Values);
                     cloudCover = cloudCover.substring(1, cloudCover.length() - 1) + " Octas";
                     System.out.println(cloudCover);
+=======
+                    //TODO: print temperature to array
+                    //System.out.println(temperature);
+                    temper = String.valueOf(Values);
+                    temper = temper.substring(1,temper.length()-1)+ " °C";
+                    //System.out.println(temper);
+                }else if (name.equals(cloud_cover)){
+                    //TODO: print cloud coverage to array
+                    //System.out.println(cloud_cover);
+                    cloudCover = String.valueOf(Values);
+                    cloudCover = cloudCover.substring(1,cloudCover.length()-1)+ " Octas";
+                    //System.out.println(cloudCover);
+                }else{
+                    //TODO: Something?
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
                 }
             }
+<<<<<<< HEAD
             weatherList.add(new WeatherInfo(validDate, validTime, temper, cloudCover));
+=======
+
+            //wheatherList.add(new WeatherInfo(valid,))
+
+
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
         }
 
         WeatherList.setReady();

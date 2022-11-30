@@ -34,13 +34,18 @@ public class theWeather extends AppCompatActivity {
     WeatherAdapter weatherAdapter;
     WeatherInfo weather1;
     WeatherInfo weather2;
+<<<<<<< HEAD
     TextView apprDateText;
     TextView apprTimeText;
+=======
+    boolean readyToPrint = false;
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_weather);
+<<<<<<< HEAD
         // more ui, the recycler view
 
         apprDateText = findViewById(R.id.aproved_date_text);
@@ -61,6 +66,34 @@ public class theWeather extends AppCompatActivity {
 
     public void printWeather() {
 
+=======
+        weather1 = new WeatherInfo("2022-01-29","22","15","6");
+        weather2 = new WeatherInfo("2022-01-29","23","16","7");
+        // messageView = findViewById(R.id.message_view);
+        // more ui, the recycler view
+
+
+        networking = new networking(this);
+        //call the getdata
+        networking.getData();
+
+        // data
+        /*weatherList = WeatherList.getInstance(); // get the singleton list ui
+        weatherList.add(weather1);
+        weatherList.add(weather2);
+
+         */
+        System.out.println("Test view");
+
+
+        printWeather();
+
+        // specify an adapter
+
+    }
+
+    public void printWeather() {
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -69,5 +102,15 @@ public class theWeather extends AppCompatActivity {
         recyclerView.setAdapter(weatherAdapter);
 
         weatherList = WeatherList.getInstance();
+<<<<<<< HEAD
+=======
+        System.out.println("Temperature " + weatherList.get(15).getTemperature());
+    }
+
+    protected void onBackPressed(Bundle savedInstanceState) {
+        //TODO: clear list
+
+
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
     }
 }

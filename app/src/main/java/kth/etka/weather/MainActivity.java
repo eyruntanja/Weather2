@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
 
     //not sure if we have to change the edit text, it looks weird
     private void setCoordinates(View view) {
@@ -113,5 +114,16 @@ public class MainActivity extends AppCompatActivity {
         myEdit.apply();
 
         startActivity(new Intent(this, theWeather.class));
+=======
+    public void loadWeatherForecast(String cityName) {
+        // init
+    }
+
+    //not sure if we have to change the edit text, it looks weird
+    private void submit(View view) {
+        //if sentence for if the latitude and longitude are inside bounds
+        startActivity(new Intent(this, theWeather.class));
+        //else show "Requested point is out of bounds"
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
     }
 }

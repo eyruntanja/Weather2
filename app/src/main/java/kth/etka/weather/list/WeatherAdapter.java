@@ -3,7 +3,10 @@ package kth.etka.weather.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.ImageView;
+=======
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,9 +26,13 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         public TextView dateText;
         public TextView timeText;
         public TextView temperatureText;
+<<<<<<< HEAD
         public ImageView cloudCoverageIcon;
         public TextView apprDate;
         public TextView apprTime;
+=======
+        public TextView cloudCoverageText;
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
 
         public ViewHolder(View v) {
             super(v);
@@ -41,7 +48,11 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         vh.dateText = itemView.findViewById(R.id.date_text);
         vh.timeText = itemView.findViewById(R.id.time_text);
         vh.temperatureText = itemView.findViewById(R.id.temperature_text);
+<<<<<<< HEAD
         vh.cloudCoverageIcon = itemView.findViewById(R.id.cloud_coverage_icon);
+=======
+        vh.cloudCoverageText = itemView.findViewById(R.id.cloud_coverage_text);
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
         return vh;
     }
 
@@ -53,6 +64,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
         vh.dateText.setText(weather.getDate());
         vh.timeText.setText(weather.getHour());
         vh.temperatureText.setText(weather.getTemperature());
+<<<<<<< HEAD
         if ( Integer.valueOf(weather.getCloudCoverage().substring(0,1)) <= 2) {
             vh.cloudCoverageIcon.setImageResource(R.drawable.sunny);
         } else if (Integer.valueOf(weather.getCloudCoverage().substring(0,1)) <= 4 && Integer.valueOf(weather.getCloudCoverage().substring(0,1)) > 2) {
@@ -63,6 +75,9 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.ViewHold
             vh.cloudCoverageIcon.setImageResource(R.drawable.cloud3);
         }
 
+=======
+        vh.cloudCoverageText.setText(weather.getCloudCoverage());
+>>>>>>> f67ccaa4af99852ee979ee656d674507339401f3
 
     }
     @Override
