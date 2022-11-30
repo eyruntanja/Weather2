@@ -39,13 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadWeatherForecast(String cityName) {
         // init
-
     }
 
     //not sure if we have to change the edit text, it looks weird
     private void submit(View view) {
         //if sentence for if the latitude and longitude are inside bounds
-            startActivity(new Intent(this, theWeather.class));
+        startActivity(new Intent(this, theWeather.class));
         //else show "Requested point is out of bounds"
     }
 }
