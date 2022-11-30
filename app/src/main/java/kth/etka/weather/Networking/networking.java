@@ -55,22 +55,28 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import kth.etka.weather.R;
+import kth.etka.weather.list.WeatherList;
 import kth.etka.weather.parser.parser;
+import kth.etka.weather.theWeather;
 
 public class networking {
     RequestQueue queue;
     parser Parser;
 
+    theWeather theweather;
     public networking(Context context){
         queue = Volley.newRequestQueue(context);
     }
 
-    static TextView textView;
 
     /* TESTING LINK */
-    static String url = "https://maceo.sth.kth.se/weather/forecast?lonLat=lon/14.333/lat/60.383";
+    String url;
 
-    public void getData(){
+    public void getData(Float longitude, Float latitude){
+        String Longitude = Float.toString(longitude);
+        String Latitude = Float.toString(latitude);
+        url = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/" + Longitude + "/lat/" +Latitude +"/data.json";
+
         JsonObjectRequest tryRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 url,
@@ -79,6 +85,9 @@ public class networking {
                     Parser = new parser();
                     try {
                         Parser.Weather(response);
+                        //theweather.printWeather();
+                        System.out.println("Is ready? " + WeatherList.listIsReady());
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -86,6 +95,8 @@ public class networking {
                 errorlistener);
 
         queue.add(tryRequest);
+        System.out.println("Test network 2");
     }
     private Response.ErrorListener errorlistener = error -> Log.i("tag", error.toString());
+
 }
