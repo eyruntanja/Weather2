@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //TODO: if connected to internet
         submit = findViewById(R.id.submit);
         submit.setOnClickListener(this::submit);
+        //TODO: else if not connected to internet
 
     }
 

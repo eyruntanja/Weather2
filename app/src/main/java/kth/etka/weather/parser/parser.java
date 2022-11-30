@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 import kth.etka.weather.MainActivity;
 
+//Based on
+
 public class parser {
 
     private static final String
@@ -46,9 +48,9 @@ public class parser {
             JSONArray weatherAtX = timeS.getJSONArray(param);
 
             //TODO: print the time to the array
-            System.out.println(valid);
-
-
+            String validDate = valid.substring(0,10);
+            String validTime = valid.substring(11,16);
+            System.out.println(validDate + " " + validTime);
 
             for (int j = 0; j < weatherAtX.length(); j++){
                 JSONObject parameters = weatherAtX.getJSONObject(j);
@@ -64,13 +66,14 @@ public class parser {
                     //TODO: print temperature to array
                     System.out.println(temperature);
                     temper = String.valueOf(Values);
-                    temper = J;
+                    temper = temper.substring(1,temper.length()-1)+ " °C";
                     System.out.println(temper);
                 }else if (name.equals(cloud_cover)){
                     //TODO: print cloud coverage to array
                     System.out.println(cloud_cover);
-                    System.out.println(Values);
-                    cloudCover = (value);
+                    cloudCover = String.valueOf(Values);
+                    cloudCover = cloudCover.substring(1,cloudCover.length()-1)+ " Octas";
+                    System.out.println(cloudCover);
                 }else{
                     //TODO: Something?
                 }
@@ -81,43 +84,8 @@ public class parser {
 
         }
 
-
-        //JSONObject object1 = new JSONObject(reference_t);
-        //JSONObject valid = timeseries.getString(valid_t);
-        //System.out.println(object1);
-        System.out.println("object" + approved);
-
-        /*JSONObject employee = object.getJSONObject("employee");
-
-        String name = employee.getString("name");
-        String salary = employee.getString("salary");
-        System.out.println(name);
-        System.out.println(salary);*/
-
-        /*String approve = time.getString(approved_t);
-        System.out.println(approve);
-        String reference = time.getString(reference_t);
-        System.out.println(reference);
-        String valid = time.getString(valid_t);
-        System.out.println(valid);*/
-
     }
 
-/*    public static void parseJsonData(String jsonString) {
-            try {
-                JSONObject object = new JSONObject(jsonString);
-                JSONArray paramArray = object.getJSONArray("parameters");
-                ArrayList<String> al = new ArrayList<String>();
-
-                for(int i = 0; i < paramArray.length(); i++) {
-                    al.add(paramArray.getString(i));
-                }
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(null, android.R.layout.simple_list_item_1, al);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-    }*/
 }
 
 
